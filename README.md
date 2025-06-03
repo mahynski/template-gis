@@ -19,3 +19,7 @@ To launch Autogen Studio UI:
 ~~~bash
 $ bash .devcontainer/start_autogenstudio.sh # at 127.0.0.1:4242
 ~~~
+
+Citations
+---
+The logo for this repository (logo.png) was generated using Google Gemini 2.0 Flash (Imagen 3) on Mar. 18, 2025 with the prompt "Create a logo representing machine learning on geospatial data involving a globe."
