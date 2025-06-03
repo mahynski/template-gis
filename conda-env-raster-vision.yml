@@ -1,0 +1,16 @@
+name: raster-vision
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+    - ipykernel # Must be specified for .devcontainers to work correctly
+    - notebook # Must be specified for .devcontainers to work correctly
+    - ipywidgets
+    - matplotlib
+    - numpy
+    - torch-summary
+    - tensorboard
+    - rastervision==0.31
+    - mlflow
