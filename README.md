@@ -15,9 +15,9 @@ To launch Jupyter MLFlow server:
 $ bash .devcontainer/start_mlflow.sh # at 127.0.0.1:4342
 ~~~
 
-To launch Autogen Studio UI:
+To launch Autotrain UI:
 ~~~bash
-$ bash .devcontainer/start_autogenstudio.sh # at 127.0.0.1:4242
+$ bash .devcontainer/start_autotrain.sh # at 127.0.0.1:4242
 ~~~
 
 Citations
