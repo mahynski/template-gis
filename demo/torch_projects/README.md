@@ -1,0 +1,1 @@
+Both `torchgeo` and `terratorch` use the same environment and Jupyter kernel for simplicity.

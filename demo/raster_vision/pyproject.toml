@@ -1,0 +1,13 @@
+[project]
+name = "raster-vision"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "ipykernel>=6.30.0",
+    "matplotlib>=3.10.3",
+    "mlflow>=3.1.4",
+    "numpy>=2.2.6",
+    "rastervision==0.31",
+    "tensorboard>=2.20.0",
+    "torch-summary>=1.4.5",
+]

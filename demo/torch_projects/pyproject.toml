@@ -1,0 +1,21 @@
+[project]
+name = "raster-vision"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "ipykernel>=6.30.0",
+    "matplotlib>=3.10.3",
+    "mlflow>=3.1.4",
+    "numpy>=2.2.6",
+    "pandas>=2.3.1",
+    "rastervision==0.31",
+    "scikit-learn>=1.7.1",
+    "scipy>=1.15.3",
+    "tensorboard>=2.20.0",
+    "terratorch",
+    "torch-summary>=1.4.5",
+    "torchgeo==0.6.2",
+]
+
+[tool.uv.sources]
+terratorch = { git = "https://github.com/IBM/terratorch.git", rev = "0.99.9post1" }
