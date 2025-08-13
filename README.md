@@ -15,9 +15,9 @@ $ bash .devcontainer/start_jupyter.sh
 Then navigate to `demo/`, select the relevant project directory, and install the project into a virtual environment with uv.
 
 ~~~bash
-$ cd projects/selected_project
+$ cd demo/selected_demo
 $ uv sync --no-install-workspace
-$ uv run ipython kernel install --user --env VIRTUAL_ENV ../../.venv --name=selected_project
+$ uv run ipython kernel install --user --env VIRTUAL_ENV ../../.venv --name=selected_demo
 ~~~
 
 These are already configured with ipykernel, so you can just install the Jupyter kernel directly as shown above.
