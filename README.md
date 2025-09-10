@@ -7,7 +7,6 @@ Different frameworks been installed in the `demo/` directory with Jupyter notebo
 To get started:
 
 ~~~bash
-$ bash .devcontainer/setup.sh
 $ bash .devcontainer/start_mlflow.sh
 $ bash .devcontainer/start_jupyter.sh
 ~~~
