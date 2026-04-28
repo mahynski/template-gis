@@ -1,0 +1,19 @@
+[project]
+name = "object-detection"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "ipykernel>=6.30.0",
+    "matplotlib>=3.10.3",
+    "numpy>=2.2.6",
+    "sahi>=0.11.36",
+    "geodeep>=0.9.12",
+    "torch>=2.4.1",
+    "torchvision>=0.19.0",
+    "ultralytics>=8.3.0",
+    "opencv-python-headless>=4.10.0",
+    "rasterio>=1.4.0",
+    "geopandas>=1.0.0",
+    "shapely>=2.0.0",
+    "onnxruntime>=1.18.0",
+]
