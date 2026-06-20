@@ -1,6 +1,9 @@
 # Using this Template
 
-<img src="logo.png" align="right" width=110 />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="logo-dark.png" />
+  <img src="logo-light.png" align="right" width=200 alt="template-gis logo" />
+</picture>
 
 Different frameworks been installed in the `demo/` directory with Jupyter notebooks to illustrate their use.
 
@@ -133,4 +136,4 @@ This `.crt` file can be stored in the `.ignore/` folder if necessary.
 
 Update the CITATION.cff file to enable appropriate citations.
 
-The logo for this repository (logo.png) was generated using Google Gemini 2.0 Flash (Imagen 3) on Mar. 18, 2025 with the prompt "Create a logo representing machine learning on geospatial data involving a globe."
+The logo for this repository (logo-light.png and logo-dark.png) was generated with the `logo` skill in `.claude/skills/logo/` by running `uv run python .claude/skills/logo/make_logo.py`.
