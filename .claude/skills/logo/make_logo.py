@@ -31,7 +31,7 @@ import os
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 # ==== PER-REPO SETTINGS (change these) ====================================
-TITLE = 'template-uv-project'   # repo name, printed under the badge
+TITLE = 'template-gis'   # repo name, printed under the badge
 
 
 def draw_hero(md, box, neon):
@@ -49,32 +49,32 @@ def draw_hero(md, box, neon):
     Notes
     -----
     Draw only flat ``neon`` shapes/text -- the caller blurs a copy of this
-    layer to make the glow, so no glow handling is needed here. This default
-    is the ``template-uv-project`` hero: a viewfinder/template frame (four
-    corner brackets) around a lowercase ``uv`` monogram. Replace the body for
-    other repos; keep the fill color ``neon``.
+    layer to make the glow, so no glow handling is needed here. This repo's
+    hero is a wireframe globe: an outer sphere crossed by a straight equator
+    and central meridian, two straight latitude chords, and a pair of curved
+    longitude arcs (a tall vertical ellipse). It reads as geospatial/GIS data
+    on a globe. Replace the body for other repos; keep the fill color ``neon``.
     """
     fx0, fy0, fx1, fy1 = box
-    arm, th, cr = int(96 * SS), int(26 * SS), int(8 * SS)
-
-    def box_sorted(x0, y0, x1, y1):
-        return [min(x0, x1), min(y0, y1), max(x0, x1), max(y0, y1)]
-
-    def bracket(x, y, dx, dy):  # L bracket with its corner at (x, y)
-        md.rounded_rectangle(box_sorted(x, y, x + dx * arm, y + dy * th), cr, fill=neon)
-        md.rounded_rectangle(box_sorted(x, y, x + dx * th, y + dy * arm), cr, fill=neon)
-
-    bracket(fx0, fy0, +1, +1)
-    bracket(fx1, fy0, -1, +1)
-    bracket(fx0, fy1, +1, -1)
-    bracket(fx1, fy1, -1, -1)
-
-    font = jost(int(196 * SS), weight=600)
-    txt = 'uv'
-    tb = md.textbbox((0, 0), txt, font=font)
     cx, cy = (fx0 + fx1) // 2, (fy0 + fy1) // 2
-    md.text((cx - (tb[2] - tb[0]) // 2 - tb[0], cy - (tb[3] - tb[1]) // 2 - tb[1]),
-            txt, font=font, fill=neon)
+    radius = min(fx1 - fx0, fy1 - fy0) // 2
+    lw = int(18 * SS)               # stroke width for every grid line
+
+    # outer sphere
+    md.ellipse([cx - radius, cy - radius, cx + radius, cy + radius],
+               outline=neon, width=lw)
+
+    # equator + two latitude chords (straight horizontal lines). The chord
+    # half-length at vertical offset dy is sqrt(radius**2 - dy**2), so each
+    # line stops exactly on the sphere outline.
+    for dy in (-radius // 2, 0, radius // 2):
+        half = int((radius ** 2 - dy ** 2) ** 0.5)
+        md.line([cx - half, cy + dy, cx + half, cy + dy], fill=neon, width=lw)
+
+    # central meridian (straight) + curved longitude arcs (vertical ellipse)
+    md.line([cx, cy - radius, cx, cy + radius], fill=neon, width=lw)
+    a = int(radius * 0.55)          # half-width of the longitude ellipse
+    md.ellipse([cx - a, cy - radius, cx + a, cy + radius], outline=neon, width=lw)
 
 
 # ==== BRAND FRAME (keep identical across repos) ===========================
